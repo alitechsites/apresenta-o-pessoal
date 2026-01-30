@@ -14,12 +14,12 @@
 
     <style>
         :root {
-            --primary: #6366f1; /* Indigo moderno */
-            --secondary: #a855f7; /* Roxo vibrante */
+            --primary: #6366f1; 
+            --secondary: #a855f7; 
             --bg-dark: #0f172a;
             --bg-card: rgba(30, 41, 59, 0.7);
             --text-light: #f8fafc;
-            --accent: #22d3ee; /* Ciano tech */
+            --accent: #22d3ee; 
             --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
             --glass: rgba(255, 255, 255, 0.03);
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -36,7 +36,6 @@
 
         h1, h2, h3 { font-family: 'Outfit', sans-serif; }
 
-        /* Background Animated Particles */
         #bg-canvas {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1; background: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #0f172a 100%);
@@ -44,85 +43,68 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
 
-        /* Header Nav */
         header {
             padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000;
             background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
         .nav-links { display: flex; gap: 30px; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 0.9rem; transition: var(--transition); opacity: 0.8; }
         .nav-links a:hover { opacity: 1; color: var(--accent); }
 
-        /* Hero Section */
         .hero { height: 100vh; display: flex; align-items: center; position: relative; padding-top: 80px; }
-        .hero-content { max-width: 700px; }
+        .hero-content { max-width: 750px; }
         .hero-badge { background: rgba(99, 102, 241, 0.1); border: 1px solid var(--primary); color: var(--accent); padding: 8px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; display: inline-block; margin-bottom: 20px; }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1.1; margin-bottom: 25px; }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); line-height: 1.1; margin-bottom: 25px; }
         .hero h1 span { color: var(--accent); }
         .hero p { font-size: 1.2rem; opacity: 0.8; margin-bottom: 40px; }
         
         .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; }
-        .btn { padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; transition: var(--transition); display: inline-flex; align-items: center; gap: 10px; }
+        .btn { padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; transition: var(--transition); display: inline-flex; align-items: center; gap: 10px; border: none; cursor: pointer; font-family: inherit; }
         .btn-primary { background: var(--gradient); color: white; box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3); }
         .btn-outline { border: 1px solid rgba(255,255,255,0.2); color: white; background: var(--glass); }
         .btn:hover { transform: translateY(-5px); filter: brightness(1.2); }
 
-        /* Floating Tech Image */
-        .hero-img { position: absolute; right: 0; width: 40%; z-index: -1; opacity: 0.6; animation: float 6s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
+        .hero-img { position: absolute; right: -50px; width: 45%; z-index: -1; opacity: 0.4; animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-30px) rotate(2deg); } }
 
-        /* Sections Styling */
         section { padding: 100px 0; }
         .section-title { margin-bottom: 60px; }
         .section-title span { color: var(--accent); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 3px; font-weight: 800; display: block; margin-bottom: 10px; }
         .section-title h2 { font-size: 2.5rem; }
 
-        /* Sobre Mim & Conquista */
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .agrinho-card { background: var(--glass); padding: 40px; border-radius: 24px; border: 1px solid rgba(255,215,0,0.3); position: relative; overflow: hidden; }
-        .agrinho-card::after { content: '🏆'; position: absolute; font-size: 8rem; right: -20px; bottom: -20px; opacity: 0.1; }
-        .agrinho-card h3 { color: #ffd700; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .agrinho-card { background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(0,0,0,0)); padding: 40px; border-radius: 24px; border: 1px solid rgba(255,215,0,0.3); position: relative; }
+        .agrinho-card i { color: #ffd700; font-size: 2.5rem; margin-bottom: 20px; }
 
-        /* AliTech Services */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .service-card { background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); }
-        .service-card:hover { background: rgba(99, 102, 241, 0.1); border-color: var(--primary); }
+        .service-card:hover { border-color: var(--primary); transform: translateY(-10px); }
         .service-card i { font-size: 2.5rem; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; display: block; }
 
-        /* Skills */
-        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
-        .skill-box { text-align: center; padding: 25px; background: var(--glass); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
-        .skill-box i { font-size: 2rem; margin-bottom: 10px; color: var(--accent); }
-
-        /* Portfolio */
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .project-card { border-radius: 20px; overflow: hidden; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05); }
-        .project-img { height: 200px; background: #1e293b; display: flex; align-items: center; justify-content: center; font-weight: 800; color: rgba(255,255,255,0.1); font-size: 3rem; position: relative; }
-        .project-img::before { content: ''; position: absolute; width: 100%; height: 100%; background: var(--gradient); opacity: 0.1; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .project-card { border-radius: 20px; overflow: hidden; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); }
+        .project-img { height: 180px; background: #1e293b; display: flex; align-items: center; justify-content: center; position: relative; }
+        .project-img i { font-size: 4rem; opacity: 0.1; color: var(--accent); }
         .project-content { padding: 30px; }
-        .tag { background: var(--primary); font-size: 0.7rem; padding: 4px 10px; border-radius: 4px; margin-bottom: 10px; display: inline-block; }
+        .tag { background: var(--primary); font-size: 0.7rem; padding: 4px 10px; border-radius: 4px; margin-bottom: 10px; display: inline-block; font-weight: 700; }
 
-        /* Contact Section */
         .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; }
         .contact-info div { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; }
         .contact-info i { width: 50px; height: 50px; background: var(--glass); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--accent); border: 1px solid rgba(255,255,255,0.05); }
-        .contact-info a { color: white; text-decoration: none; transition: 0.3s; }
-        .contact-info a:hover { color: var(--accent); }
-
-        form { display: grid; gap: 20px; }
+        .contact-info a { color: white; text-decoration: none; transition: 0.3s; font-weight: 600; }
+        
+        form { display: grid; gap: 15px; }
         input, textarea { background: var(--glass); border: 1px solid rgba(255,255,255,0.1); padding: 18px; border-radius: 12px; color: white; font-family: inherit; }
-        input:focus, textarea:focus { outline: 1px solid var(--accent); background: rgba(255,255,255,0.08); }
-
-        footer { padding: 50px 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; opacity: 0.6; font-size: 0.8rem; }
+        
+        footer { padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; font-size: 0.8rem; opacity: 0.7; }
 
         @media (max-width: 992px) {
-            .hero-flex { flex-direction: column; text-align: center; }
-            .hero-content { max-width: 100%; }
+            .hero { text-align: center; }
+            .hero-btns { justify-content: center; }
             .hero-img { display: none; }
             .about-grid, .contact-grid { grid-template-columns: 1fr; }
-            .hero-btns { justify-content: center; }
         }
     </style>
 </head>
@@ -136,8 +118,8 @@
                 <a href="#" class="logo">AliTech</a>
                 <ul class="nav-links">
                     <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#servicos">AliTech</a></li>
-                    <li><a href="#portfolio">Projetos</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#portfolio">Portfólio</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </nav>
@@ -146,11 +128,11 @@
 
     <section class="hero container" id="home">
         <div class="hero-content" data-aos="fade-up">
-            <div class="hero-badge">AliTech Solutions</div>
+            <div class="hero-badge">Agrinho 2025 Winner 🏆</div>
             <h1>Jovem talento transformando ideias em <span>experiências digitais</span>.</h1>
-            <p>Olá, eu sou <strong>Alisson Vieira</strong>. Especialista em desenvolvimento web focado em resultados, estética premium e tecnologia de ponta para empresas que buscam liderança online.</p>
+            <p>Eu sou <strong>Alisson Vieira</strong>, fundador da AliTech. Aos 15 anos, provo que a excelência técnica supera a idade, entregando soluções web de alto nível para empresas que não aceitam o comum.</p>
             <div class="hero-btns">
-                <a href="https://wa.me/5542998633284" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Iniciar Projeto</a>
+                <a href="https://wa.me/5542998633284" class="btn btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 <a href="#portfolio" class="btn btn-outline">Ver Portfólio</a>
             </div>
         </div>
@@ -160,110 +142,84 @@
     <section class="container" id="sobre">
         <div class="about-grid">
             <div class="agrinho-card" data-aos="zoom-in">
-                <h3><i class="fas fa-medal"></i> Agrinho 2025</h3>
-                <p>Premiado na categoria <strong>Programação</strong> no maior evento de inovação do estado. Um marco que atesta minha capacidade técnica de resolver problemas complexos através do código antes mesmo dos 16 anos.</p>
+                <i class="fas fa-trophy"></i>
+                <h3>Ganhador Agrinho 2025</h3>
+                <p>Premiado na categoria <strong>Programação</strong>, o prêmio Agrinho chancela minha capacidade técnica e mentalidade inovadora entre milhares de talentos do Paraná.</p>
             </div>
             <div data-aos="fade-left">
                 <div class="section-title">
-                    <span>Inovação & Talento</span>
-                    <h2>Visão estratégica, execução impecável.</h2>
+                    <span>Quem é Alisson Vieira?</span>
+                    <h2>Tecnologia corre nas veias.</h2>
                 </div>
-                <p style="opacity: 0.8; margin-bottom: 20px;">Localizado em Inácio Martins (PR), iniciei minha jornada com a crença de que <strong>talento não depende da idade</strong>, mas sim da habilidade e dos resultados reais entregues.</p>
-                <p style="opacity: 0.8;">Unindo meu espírito empreendedor com a formação técnica em Administração, fundei a AliTech para preencher a lacuna entre empresas e o sucesso digital.</p>
+                <p style="margin-bottom: 20px;">Natural de Inácio Martins, sou estudante do 2º ano de Administração, unindo a visão de processos com o desenvolvimento Full-Stack.</p>
+                <p>A <strong>AliTech</strong> nasceu do desejo de profissionalizar o mercado digital, mostrando que sites rápidos, modernos e seguros são a base de qualquer negócio lucrativo hoje.</p>
             </div>
         </div>
     </section>
 
-    <section id="servicos" style="background: rgba(0,0,0,0.2);">
+    <section id="servicos" style="background: rgba(0,0,0,0.1);">
         <div class="container">
             <div class="section-title" style="text-align: center;">
-                <span>Soluções AliTech</span>
-                <h2>Transformando Negócios em Autoridades Digitais</h2>
+                <span>Soluções Digitais</span>
+                <h2>O que a AliTech faz por você</h2>
             </div>
             <div class="services-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <i class="fas fa-code"></i>
+                    <h3>Sites Profissionais</h3>
+                    <p>Institucionais elegantes que transmitem autoridade imediata para sua marca.</p>
+                </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-rocket"></i>
-                    <h3>Landing Pages</h3>
-                    <p>Páginas de alta conversão projetadas para transformar cliques em clientes. Foco em UX e persuasão.</p>
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>E-commerce</h3>
+                    <p>Lojas prontas para vender, com foco total na conversão e facilidade de uso.</p>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-store"></i>
-                    <h3>E-commerce</h3>
-                    <p>Lojas virtuais completas com sistemas de pagamento seguros e layout focado em vendas.</p>
+                    <i class="fas fa-bolt"></i>
+                    <h3>Landing Pages</h3>
+                    <p>Páginas ultrarrápidas criadas para campanhas de anúncios e captura de leads.</p>
                 </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-building"></i>
-                    <h3>Institucionais</h3>
-                    <p>Websites que elevam o prestígio da sua empresa e transmitem confiança absoluta aos seus parceiros.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="container" id="habilidades">
-        <div class="skills-container">
-            <div class="skill-box" data-aos="fade-up">
-                <i class="fab fa-html5"></i>
-                <p>Dev Web</p>
-            </div>
-            <div class="skill-box" data-aos="fade-up" data-aos-delay="100">
-                <i class="fas fa-mobile-alt"></i>
-                <p>Responsividade</p>
-            </div>
-            <div class="skill-box" data-aos="fade-up" data-aos-delay="200">
-                <i class="fas fa-palette"></i>
-                <p>UI Design</p>
-            </div>
-            <div class="skill-box" data-aos="fade-up" data-aos-delay="300">
-                <i class="fas fa-lightbulb"></i>
-                <p>Criatividade</p>
-            </div>
-            <div class="skill-box" data-aos="fade-up" data-aos-delay="400">
-                <i class="fas fa-chart-line"></i>
-                <p>Resultados</p>
             </div>
         </div>
     </section>
 
     <section id="portfolio" class="container">
         <div class="section-title">
-            <span>Showcase</span>
+            <span>Portfólio Real</span>
             <h2>Projetos Recentes</h2>
         </div>
         <div class="portfolio-grid">
+            
             <div class="project-card" data-aos="zoom-in">
-                <div class="project-img">TECH CORE</div>
+                <div class="project-img"><i class="fas fa-microchip"></i></div>
                 <div class="project-content">
                     <span class="tag">Institucional</span>
-                    <h3>SaaS Platform UI</h3>
-                    <p style="opacity: 0.7; font-size: 0.9rem;">Interface futurista para uma plataforma de inteligência artificial com foco em performance.</p>
+                    <h3>Portal AliTech</h3>
+                    <p style="opacity: 0.7; font-size: 0.9rem; margin-bottom: 20px;">O hub oficial de tecnologia e inovação da AliTech Solutions.</p>
+                    <a href="https://alitechsites.github.io/aliTech/" target="_blank" class="btn-outline" style="padding: 10px 15px; font-size: 0.7rem;">Ver Demo <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
-            <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
-                <div class="project-img">ESTILO PRO</div>
-                <div class="project-content">
-                    <span class="tag">Vendas</span>
-                    <h3>E-commerce de Elite</h3>
-                    <p style="opacity: 0.7; font-size: 0.9rem;">Loja virtual de vestuário com checkout otimizado e design minimalista sofisticado.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="container" id="depoimentos">
-        <div class="section-title" style="text-align: center;">
-            <span>Social Proof</span>
-            <h2>O que dizem sobre o trabalho</h2>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <p style="font-style: italic; opacity: 0.8;">"O Alisson entregou um site que superou todas as agências que consultamos anteriormente. Visão técnica impecável."</p>
-                <div style="margin-top: 20px; font-weight: 800;">- Carlos Mendes, Tech Solutions</div>
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="project-img"><i class="fas fa-tshirt"></i></div>
+                <div class="project-content">
+                    <span class="tag">E-commerce</span>
+                    <h3>Loja de Roupas</h3>
+                    <p style="opacity: 0.7; font-size: 0.9rem; margin-bottom: 20px;">Interface fashion moderna com catálogo dinâmico e design clean.</p>
+                    <a href="https://alitechsites.github.io/sua-loja-de-roupas/" target="_blank" class="btn-outline" style="padding: 10px 15px; font-size: 0.7rem;">Ver Demo <i class="fas fa-external-link-alt"></i></a>
+                </div>
             </div>
-            <div class="service-card">
-                <p style="font-style: italic; opacity: 0.8;">"Incrível ver como a AliTech entende as necessidades do cliente. Nossa landing page agora é nossa maior fonte de vendas."</p>
-                <div style="margin-top: 20px; font-weight: 800;">- Mariana Costa, Estética Pro</div>
+
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="project-img"><i class="fas fa-hamburger"></i></div>
+                <div class="project-content">
+                    <span class="tag">Delivery</span>
+                    <h3>Hamburgueria</h3>
+                    <p style="opacity: 0.7; font-size: 0.9rem; margin-bottom: 20px;">Cardápio digital interativo focado em vendas rápidas via mobile.</p>
+                    <a href="https://alitechsites.github.io/Sua-hamburgueria/" target="_blank" class="btn-outline" style="padding: 10px 15px; font-size: 0.7rem;">Ver Demo <i class="fas fa-external-link-alt"></i></a>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -271,89 +227,48 @@
         <div class="contact-grid">
             <div class="contact-info" data-aos="fade-right">
                 <div class="section-title">
-                    <span>Let's Talk</span>
-                    <h2>Conecte-se comigo agora.</h2>
+                    <span>Contato</span>
+                    <h2>Vamos criar o futuro?</h2>
                 </div>
-                <div>
-                    <i class="fab fa-whatsapp"></i>
-                    <span>(42) 99863-3284</span>
-                </div>
-                <div>
-                    <i class="far fa-envelope"></i>
-                    <a href="mailto:delimavieiraalisson@gmail.com">delimavieiraalisson@gmail.com</a>
-                </div>
-                <div>
-                    <i class="fab fa-instagram"></i>
-                    <a href="https://instagram.com/AliTech_sites" target="_blank">@AliTech_sites</a>
-                </div>
+                <div><i class="fab fa-whatsapp"></i> <span>(42) 99863-3284</span></div>
+                <div><i class="far fa-envelope"></i> <a href="mailto:delimavieiraalisson@gmail.com">delimavieiraalisson@gmail.com</a></div>
+                <div><i class="fab fa-instagram"></i> <a href="https://instagram.com/AliTech_sites">@AliTech_sites</a></div>
             </div>
             <form data-aos="fade-left">
-                <input type="text" placeholder="Seu Nome Completo" required>
-                <input type="email" placeholder="Seu Melhor E-mail" required>
-                <textarea rows="5" placeholder="Fale sobre seu projeto ou ideia..." required></textarea>
-                <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer;">Enviar Mensagem <i class="fas fa-paper-plane"></i></button>
+                <input type="text" placeholder="Nome Completo" required>
+                <input type="email" placeholder="E-mail" required>
+                <textarea rows="4" placeholder="Como posso ajudar seu negócio hoje?" required></textarea>
+                <button type="submit" class="btn btn-primary">Enviar Mensagem <i class="fas fa-paper-plane"></i></button>
             </form>
         </div>
     </section>
 
     <footer>
         <p>© 2026 – Alisson de Lima Vieira | AliTech – Todos os direitos reservados</p>
-        <p style="margin-top: 5px; font-size: 0.7rem;">Inácio Martins, PR - Brasil</p>
+        <div style="margin-top: 15px;">
+            <a href="https://instagram.com/alisson_lima001" style="color:white; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5542998633284" style="color:white; margin: 0 10px;"><i class="fab fa-whatsapp"></i></a>
+        </div>
     </footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // AOS Animation Initialize
         AOS.init({ duration: 1000, once: true });
 
-        // Particle Background Logic
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
-
-        function resize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.onresize = resize;
-        resize();
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        window.onresize = resize; resize();
 
         class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 0.1;
-                this.speedX = Math.random() * 1 - 0.5;
-                this.speedY = Math.random() * 1 - 0.5;
-                this.opacity = Math.random() * 0.5;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.x > canvas.width) this.x = 0;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                if (this.y < 0) this.y = canvas.height;
-            }
-            draw() {
-                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
+            constructor() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.size = Math.random() * 2; this.speedX = Math.random() * 0.5 - 0.25; this.speedY = Math.random() * 0.5 - 0.25; }
+            update() { this.x += this.speedX; this.y += this.speedY; if (this.x > canvas.width) this.x = 0; if (this.y > canvas.height) this.y = 0; }
+            draw() { ctx.fillStyle = 'rgba(255, 255, 255, 0.2)'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
         }
-
-        for (let i = 0; i < 100; i++) particles.push(new Particle());
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-            requestAnimationFrame(animate);
-        }
+        for (let i = 0; i < 60; i++) particles.push(new Particle());
+        function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
         animate();
     </script>
 </body>
-</html> 
+</html>
